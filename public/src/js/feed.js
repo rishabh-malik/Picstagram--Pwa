@@ -3,7 +3,22 @@ var createPostArea = document.querySelector('#create-post')
 var closeCreatePostModalButton = document.querySelector('#close-create-post-modal-btn')
 
 function openCreatePostModal () {
-  createPostArea.style.display = 'block'
+  createPostArea.style.display = 'block';
+  //deferring the install app banner
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(function(choiceResult){
+      console.log(choiceResult.outcome);
+
+      if(choiceResult.outcome==='dismissed'){
+        console.log('User cancelled installation');
+      }
+      else{
+        console.log('User added app to homescreen');
+      }
+    });
+    deferredPrompt=null;
+  }
 }
 
 function closeCreatePostModal () {
