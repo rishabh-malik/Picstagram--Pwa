@@ -19,5 +19,16 @@ self.addEventListener('activate',function(event){
 
 self.addEventListener('fetch',function(event){
     //console.log('service worker fetching something',event);
-    event.respondWith(fetch(event.request));
+    //fetch data from cache
+    event.respondWith(
+        caches.match(event.request)
+        .then(function(){
+            if(response){
+                return response;
+            }else{
+                return fetch(event.request);
+            }
+            })
+    );
+    
 });
