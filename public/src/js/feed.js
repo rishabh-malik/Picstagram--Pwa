@@ -29,6 +29,10 @@ shareImageButton.addEventListener('click', openCreatePostModal)
 
 closeCreatePostModalButton.addEventListener('click', closeCreatePostModal)
 
+function onSaveButtonClicked(){
+  console.log('Clicked');
+}
+
 //creating cards dynamically
 function createCard(){
   var cardWrapper=document.createElement('div');
@@ -47,6 +51,10 @@ function createCard(){
   cardSupportingText.className='mdl-card__supporting-text';
   cardSupportingText.textContent='In Sans Francisco';
   cardSupportingText.style.textAlign='center';
+  var cardSaveButton=document.createElement('button');
+  cardSaveButton.textContent='Save';
+  cardSaveButton.addEventListener('click',onSaveButtonClicked);
+  cardSupportingText.appendChild(cardSaveButton);
   cardWrapper.appendChild(cardSupportingText);
   componentHandler.upgradeElement(cardWrapper);
   //sharedMomentsArea.appendChild(cardWrapper);
