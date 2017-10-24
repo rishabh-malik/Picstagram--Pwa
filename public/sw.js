@@ -37,7 +37,7 @@ self.addEventListener('fetch',function(event){
     //fetch data from cache
     event.respondWith(
         caches.match(event.request)
-        .then(function(){
+        .then(function(response){
             if(response){
                 return response;
             }else{
