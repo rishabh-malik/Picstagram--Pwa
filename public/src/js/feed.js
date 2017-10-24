@@ -29,9 +29,18 @@ shareImageButton.addEventListener('click', openCreatePostModal)
 
 closeCreatePostModalButton.addEventListener('click', closeCreatePostModal)
 
-function onSaveButtonClicked(){
-  console.log('Clicked');
-}
+// function onSaveButtonClicked(){
+//   console.log('Clicked');
+  //saving the card on save button click
+  //cache on demand
+  // if('caches' in window){
+  //   caches.open('user-requested')
+  //     .then(function(cache){
+  //       cache.add('https://httpbin.org/get');
+  //       cache.add('/src/images/main-image-lg.jpg');
+  //     });
+  // }
+//}
 
 //creating cards dynamically
 function createCard(){
@@ -51,10 +60,11 @@ function createCard(){
   cardSupportingText.className='mdl-card__supporting-text';
   cardSupportingText.textContent='In Sans Francisco';
   cardSupportingText.style.textAlign='center';
-  var cardSaveButton=document.createElement('button');
-  cardSaveButton.textContent='Save';
-  cardSaveButton.addEventListener('click',onSaveButtonClicked);
-  cardSupportingText.appendChild(cardSaveButton);
+  //saving data offline for button click
+  // var cardSaveButton=document.createElement('button');
+  // cardSaveButton.textContent='Save';
+  // cardSaveButton.addEventListener('click',onSaveButtonClicked);
+  // cardSupportingText.appendChild(cardSaveButton);
   cardWrapper.appendChild(cardSupportingText);
   componentHandler.upgradeElement(cardWrapper);
   //sharedMomentsArea.appendChild(cardWrapper);
