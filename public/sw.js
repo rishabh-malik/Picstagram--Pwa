@@ -13,6 +13,7 @@ self.addEventListener('install',function(event){
                 '/src/css/app.css',
                 '/src/css/feed.css',
                 '/index.html',
+                '/offline.html',
                 '/src/js/material.min.js',
                 '/src/images/main-image.jpg',
                 'https://fonts.googleapis.com/css?family=Roboto:400,700',
@@ -63,7 +64,11 @@ self.addEventListener('fetch',function(event){
                                 return res;
                             });
                     }).catch(function(err){
-
+                        //returning the offline page
+                        return caches.open('static')
+                            .then(function(cache){
+                                return cache.match('/offline.html');
+                            })
                     });
             }
             })

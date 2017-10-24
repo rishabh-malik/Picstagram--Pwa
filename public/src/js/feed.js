@@ -67,8 +67,7 @@ function createCard(){
   // cardSupportingText.appendChild(cardSaveButton);
   cardWrapper.appendChild(cardSupportingText);
   componentHandler.upgradeElement(cardWrapper);
-  //sharedMomentsArea.appendChild(cardWrapper);
-  document.getElementById("card").appendChild(cardWrapper);
+  card.appendChild(cardWrapper);
 }
 
 fetch('https://httpbin.org/get')
