@@ -28,6 +28,19 @@ self.addEventListener('install',function(event){
 
 self.addEventListener('activate',function(event){
     console.log('service worker activated',event);
+    //different cache version cleanup
+    // event.waitUntil(
+    //     caches.keys()
+    //         .then(function(keyList){
+    //             return Promise.all(keyList.map(function(key){
+    //                 if(key!=='static-v2' && key!=='dynamic'){
+    //                     console.log('Removing  old cache',key);
+    //                     return caches.delete(key);
+    //                 }
+    //             }));
+    //         })
+    // );
+
     //to ensure sw is activated correctly
     return self.clients.claim();
 });
@@ -50,7 +63,7 @@ self.addEventListener('fetch',function(event){
                                 return res;
                             });
                     }).catch(function(err){
-                        
+
                     });
             }
             })
